@@ -5,17 +5,21 @@
  */
 package com.mycompany.cerberus;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author giuli
  */
 public class HardwareList extends javax.swing.JFrame {
 
-    /**
-     * Creates new form HardwareList
-     */
+     Conexao db = new Conexao();
+     
     public HardwareList() {
         initComponents();
+        db.conecta();
     }
 
 
@@ -37,6 +41,7 @@ public class HardwareList extends javax.swing.JFrame {
         btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setText("Sistema Operacional:");
 
@@ -80,7 +85,7 @@ public class HardwareList extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnAtualizar)
                         .addGap(19, 19, 19)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -134,6 +139,7 @@ public class HardwareList extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
@@ -144,6 +150,17 @@ public class HardwareList extends javax.swing.JFrame {
         lbCpu.setText(atualizacao.getCpu());
         lbRamDisp.setText(atualizacao.getRamDisp());
         lbRamTotal.setText(atualizacao.getRamTotal());
+        
+         try {
+             db.rs = db.stm.executeQuery("Select * from tbMaquina");
+          
+            
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(HardwareList.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
