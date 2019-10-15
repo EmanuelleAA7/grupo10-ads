@@ -2,9 +2,9 @@ com\mycompany\cerberus\TelaLogin$4.class
 com\mycompany\cerberus\Atualizacao.class
 com\mycompany\cerberus\TelaLogin$9.class
 com\mycompany\cerberus\TelaLogin$10.class
-com\mycompany\cerberus\TelaLogin$1.class
 com\mycompany\cerberus\HardwareList$3.class
 com\mycompany\cerberus\Splash2.class
+com\mycompany\cerberus\TelaLogin$1.class
 com\mycompany\cerberus\TelaLogin$8.class
 com\mycompany\cerberus\TelaLogin$6.class
 com\mycompany\cerberus\TelaLogin.class
@@ -12,10 +12,12 @@ com\mycompany\cerberus\TelaLogin$3.class
 com\mycompany\cerberus\Splash2$1.class
 com\mycompany\cerberus\HardwareList$1.class
 com\mycompany\cerberus\TelaLogin$5.class
+com\mycompany\cerberus\Splash$1.class
 com\mycompany\cerberus\Conexao.class
 com\mycompany\cerberus\TelaLogin$7.class
-com\mycompany\cerberus\TelaLogin$11.class
 com\mycompany\cerberus\HardwareList.class
-com\mycompany\cerberus\TelaLogin$2.class
+com\mycompany\cerberus\TelaLogin$11.class
 com\mycompany\cerberus\HardwareList$2.class
+com\mycompany\cerberus\TelaLogin$2.class
+com\mycompany\cerberus\HardwareList$4.class
 com\mycompany\cerberus\Splash.class

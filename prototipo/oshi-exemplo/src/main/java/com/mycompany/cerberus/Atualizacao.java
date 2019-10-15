@@ -1,6 +1,7 @@
 
 package com.mycompany.cerberus;
 
+import java.util.TimerTask;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
@@ -8,7 +9,7 @@ import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
 
-public class Atualizacao {
+public class Atualizacao extends TimerTask{
     
     private String so;
     private String processador;
@@ -16,8 +17,7 @@ public class Atualizacao {
     private String ramDisp;
     private String cpu;
     
-
-
+   
     
     
     public void atualizar(){
@@ -36,6 +36,8 @@ public class Atualizacao {
             
         long[] prevTicks = cp.getSystemCpuLoadTicks();
         this.cpu = String.format("%.1f%%", cp.getSystemCpuLoadBetweenTicks(prevTicks) * 100);
+        
+
       
     }
 
@@ -60,6 +62,11 @@ public class Atualizacao {
 
     public String getCpu() {
         return cpu;
+    }
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
