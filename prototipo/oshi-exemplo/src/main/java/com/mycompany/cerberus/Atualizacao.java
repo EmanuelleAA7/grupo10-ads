@@ -1,10 +1,13 @@
 
 package com.mycompany.cerberus;
 
+import java.time.LocalDateTime;
 import java.util.TimerTask;
+import org.springframework.jdbc.core.JdbcTemplate;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
+import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
@@ -16,8 +19,10 @@ public class Atualizacao extends TimerTask{
     private String ramTotal;
     private String ramDisp;
     private String cpu;
+    private String disco;
     
-   
+   Conexao dadosConexao= new Conexao();
+   JdbcTemplate jdbcTemplate= new JdbcTemplate(dadosConexao.getDataSource());
     
     
     public void atualizar(){
@@ -37,8 +42,26 @@ public class Atualizacao extends TimerTask{
         long[] prevTicks = cp.getSystemCpuLoadTicks();
         this.cpu = String.format("%.1f%%", cp.getSystemCpuLoadBetweenTicks(prevTicks) * 100);
         
-
+        //falta disco
+        
+//        HWDiskStore disco= hal.getDiskStores();
+//        this.disco = FormatUtil.formatBytes(disco.get()) ;
       
+    }
+    
+    public void insereBanco(Atualizacao att){
+        
+        Double cpu = Double.valueOf(att.getCpu().substring(0,3).replaceAll(",","."));
+        Double ram = Double.valueOf(att.getRamDisp().substring(0,4).replaceAll(",","."));
+        System.out.println(ram);
+        
+        Double disco = Double.valueOf(att.getDisco().substring(0,3).replaceAll(",","."));
+        
+        jdbcTemplate.update("insert into tbLeitura (dataHora, fkMaquina,cpu, ram,disco) values (?,?,?,?,?)",
+        LocalDateTime.now(),1,cpu, ram,disco);
+        
+        System.out.println("funfando");
+                
     }
 
     public String getSo() {
@@ -62,6 +85,10 @@ public class Atualizacao extends TimerTask{
 
     public String getCpu() {
         return cpu;
+    }
+    
+    public String getDisco(){
+        return disco;
     }
 
     @Override

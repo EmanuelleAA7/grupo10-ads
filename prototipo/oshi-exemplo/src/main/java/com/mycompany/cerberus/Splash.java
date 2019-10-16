@@ -19,11 +19,10 @@ import java.util.TimerTask;
  */
 public class Splash {
     
-//    public static final long TEMPO = (1000 * 60);
+
     
     public static void main(String[] args) {
-        Atualizacao att = new Atualizacao();
-     
+        
         Splash2 splash = new Splash2();
         splash.setVisible(true);
         TelaLogin start = new TelaLogin();
@@ -37,21 +36,21 @@ public class Splash {
                     start.setVisible(true);
                 }
             }
-           final long time =60000;
-           Timer timer = new Timer();
-           TimerTask tarefa = new TimerTask() {
-			public void run() {
-                               //método
-				try {
-//					att.atualizar();
-                                        System.out.println("teste");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-			}
-		};
-            timer.scheduleAtFixedRate(tarefa, time, time);
+//           final long time =60000;
+//           Timer timer = new Timer();
+//           TimerTask tarefa = new TimerTask() {
+//			public void run() {
+//                               //método
+//				try {
+////					att.atualizar();
+//                                        System.out.println("teste");
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//
+//			}
+//		};
+//            timer.scheduleAtFixedRate(tarefa, time, time);
             
         } catch (Exception e) {
         }
