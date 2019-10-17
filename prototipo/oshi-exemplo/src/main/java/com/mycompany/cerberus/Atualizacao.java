@@ -58,7 +58,7 @@ public class Atualizacao extends TimerTask{
         Double disco = Double.valueOf(att.getDisco().substring(0,3).replaceAll(",","."));
         
         jdbcTemplate.update("insert into tbLeitura (dataHora, fkMaquina,cpu, ram,disco) values (?,?,?,?,?)",
-        LocalDateTime.now(),1,cpu, ram,disco);
+        LocalDateTime.now(),6,cpu, ram,disco);
         
         System.out.println("funfando");
                 
