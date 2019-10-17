@@ -46,7 +46,11 @@ public class Atualizacao extends TimerTask{
         
 //        HWDiskStore disco= hal.getDiskStores();
 //        this.disco = FormatUtil.formatBytes(disco.get()) ;
-      
+       
+
+//falta listar processos
+
+//como vou subir essa listagem pra nuvem? 
     }
     
     public void insereBanco(Atualizacao att){
