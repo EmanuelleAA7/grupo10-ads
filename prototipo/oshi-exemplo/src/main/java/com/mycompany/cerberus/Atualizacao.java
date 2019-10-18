@@ -9,6 +9,8 @@ import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
+import oshi.software.os.FileSystem;
+import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
 import oshi.util.Util;
@@ -46,12 +48,18 @@ public class Atualizacao extends TimerTask{
         
         //falta disco
 
-        HWDiskStore[] discos = hal.getDiskStores();
-        String hd = "";
-        for (HWDiskStore disk : discos) {
-            hd += (FormatUtil.formatBytes(disk.getSize()));
-        }
-        this.disco = hd;
+        FileSystem fileSystem = os.getFileSystem();
+        OSFileStore[] fsArray = fileSystem.getFileStores();
+        String hdUsando = "";
+            for (OSFileStore fs : fsArray) {
+                long usable = fs.getUsableSpace();
+                long total = fs.getTotalSpace();
+                hdUsando = (String.format("%.1f%% em uso",
+                        100 - (100d * usable / total)));
+            }
+        this.disco = hdUsando;
+
+        
        
 
     }
