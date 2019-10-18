@@ -9,9 +9,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
 import java.util.Arrays;
+import java.util.Map;
 import static javax.net.ssl.SSLEngineResult.Status.OK;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import org.springframework.jdbc.core.JdbcTemplate;
 import static sun.jvm.hotspot.HelloWorld.e;
 
 /**
@@ -21,11 +23,14 @@ import static sun.jvm.hotspot.HelloWorld.e;
 public class TelaLogin extends javax.swing.JFrame {
 
     private Point point = new Point();
-    /**
-     * Creates new form StartTela
-     */
+          
+   
+            
+    Login login;        
+            
     public TelaLogin() {
         initComponents();
+    
     }
 
     /**
@@ -256,16 +261,24 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarMouseEntered
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        String email = txtLogin.getText();
+//        String senha = txtSenha.getText();
+        login=new Login(email);
+        login.autenticar(email);
         
+        if(login.isResposta()){
+
         HardwareList hl = new HardwareList();
-//        Atualizacao a1 = new Atualizacao();
-//        a1.atualizar();
         hl.setVisible(true);
         this.setVisible(false);
  
     JOptionPane.showMessageDialog(null,
                "Logado com Sucesso!");
-        
+        }  
+        else{
+               JOptionPane.showMessageDialog(null,
+               "Login ou Senha inválidos");
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
