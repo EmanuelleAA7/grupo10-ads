@@ -6,15 +6,8 @@
 package com.mycompany.cerberus;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Point;
-import java.util.Arrays;
-import java.util.Map;
-import static javax.net.ssl.SSLEngineResult.Status.OK;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import org.springframework.jdbc.core.JdbcTemplate;
-import static sun.jvm.hotspot.HelloWorld.e;
 
 /**
  *
@@ -344,7 +337,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     /**
      * @param args the command line arguments
-     */
+     *      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

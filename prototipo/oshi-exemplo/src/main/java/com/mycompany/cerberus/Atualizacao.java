@@ -36,14 +36,17 @@ public class Atualizacao extends TimerTask{
         this.so = (String.valueOf(os));   
         
         CentralProcessor cp = hal.getProcessor();
-        Util.sleep(1000);
         this.processador = cp.toString();
         
         GlobalMemory memory = hal.getMemory();
         this.ramTotal = FormatUtil.formatBytes(memory.getTotal()) ;     
-        this.ramDisp = FormatUtil.formatBytes(memory.getAvailable()) ;
+//      this.ramDisp = FormatUtil.formatBytes(memory.getAvailable()) ;
+        long tot = memory.getTotal();
+        long disp = memory.getAvailable();
+        this.ramDisp = String.format("%.1f%%", 100 - (100d * disp/tot));
             
         long[] prevTicks = cp.getSystemCpuLoadTicks();
+        Util.sleep(2000);
         this.cpu = String.format("%.1f%%", cp.getSystemCpuLoadBetweenTicks(prevTicks) * 100);
         
         //falta disco
