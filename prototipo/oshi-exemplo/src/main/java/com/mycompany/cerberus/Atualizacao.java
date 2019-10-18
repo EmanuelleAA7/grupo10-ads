@@ -7,10 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
-import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
+import oshi.util.Util;
 
 public class Atualizacao extends TimerTask{
     
@@ -33,6 +33,7 @@ public class Atualizacao extends TimerTask{
         this.so = (String.valueOf(os));   
         
         CentralProcessor cp = hal.getProcessor();
+        Util.sleep(1000);
         this.processador = cp.toString();
         
         GlobalMemory memory = hal.getMemory();
