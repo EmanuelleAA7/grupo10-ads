@@ -2,12 +2,10 @@
 package com.mycompany.cerberus;
 
 import java.time.LocalDateTime;
-import java.util.TimerTask;
 import org.springframework.jdbc.core.JdbcTemplate;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
-import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
@@ -15,7 +13,7 @@ import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
 import oshi.util.Util;
 
-public class Atualizacao extends TimerTask{
+public class Atualizacao{
     
     private String so;
     private String processador;
@@ -104,11 +102,6 @@ public class Atualizacao extends TimerTask{
     
     public String getDisco(){
         return disco;
-    }
-
-    @Override
-    public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
