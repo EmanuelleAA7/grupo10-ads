@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
+import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
@@ -44,14 +45,15 @@ public class Atualizacao extends TimerTask{
         this.cpu = String.format("%.1f%%", cp.getSystemCpuLoadBetweenTicks(prevTicks) * 100);
         
         //falta disco
-        
-//        HWDiskStore disco= hal.getDiskStores();
-//        this.disco = FormatUtil.formatBytes(disco.get()) ;
+
+        HWDiskStore[] discos = hal.getDiskStores();
+        String hd = "";
+        for (HWDiskStore disk : discos) {
+            hd += (FormatUtil.formatBytes(disk.getSize()));
+        }
+        this.disco = hd;
        
 
-//falta listar processos
-
-//como vou subir essa listagem pra nuvem? 
     }
     
     public void insereBanco(Atualizacao att){
