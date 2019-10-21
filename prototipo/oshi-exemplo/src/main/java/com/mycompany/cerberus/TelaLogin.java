@@ -262,7 +262,8 @@ public class TelaLogin extends javax.swing.JFrame {
         if(login.isResposta()){
 
         HardwareList hl = new HardwareList();
-        hl.setVisible(true);
+        TelaEscolha escolha = new TelaEscolha();
+        escolha.setVisible(true);
         this.setVisible(false);
  
     JOptionPane.showMessageDialog(null,
