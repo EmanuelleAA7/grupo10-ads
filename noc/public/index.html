@@ -1,13 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css2/bootstrap.css">
+    <link rel="stylesheet" href="assets/css2/ceberus3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>CÉBERUS </title>
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+    <main>
+        <section class="user">
+            <div class="user_options-container">
+                <div class="user_options-text">
+                    <div class="user_options-unregistered">
+                        <h2 class="user_unregistered-title">Bem-vindo</h2>
+                        <p class="user_unregistered-text">Central de NOC CÉRBERUS</p>
+                        <button class="user_unregistered-signup" id="signup-button">Informações</button>
+                    </div>
+
+                    <div class="user_options-registered">
+                        <h2 class="user_registered-title">Já tem uma conta?</h2>
+                        <p class="user_registered-text">Faça o acesso rápido por aqui</p>
+                        <button class="user_registered-login" id="login-button">Login</button>
+                    </div>
+                </div>
+
+                <div class="user_options-forms" id="user_options-forms">
+                    <div class="user_forms-login">
+                        <h2 class="forms_title text-info">Login</h2>
+                        <form class="forms_form">
+                            <fieldset class="forms_fieldset ">
+                                <div class="forms_field">
+                                    <input type="email" placeholder="Email" class="forms_field-input" required
+                                        autofocus />
+                                </div>
+                                <div class="forms_field">
+                                    <input type="password" placeholder="Senha" class="forms_field-input" required />
+                                </div>
+                            </fieldset>
+                            <div class="forms_buttons">
+                                <button type="button" class="forms_buttons-forgot">Esqueceu a senha?</button>
+                                <input type="submit" onclick="entrar()" value="Logar" class="forms_buttons-action bg-primary">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="user_forms-signup">
+                        <h2 class="forms_title text-info">Informações de Segurança</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-warning "><i class="fas fa-exclamation-triangle"></i> Lembre-se não passe sua senha para ninguem!</li>
+                            <li class="list-group-item list-group-item-warning"><i class="fas fa-exclamation-triangle"></i> Não deixe exposto seus dados!</li>
+                            <li class="list-group-item list-group-item-warning"><i class="fas fa-exclamation-triangle"></i> Toda Informações contida no portal é confidencialmente da empresa CÉRBERUS!</li>
+                        </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js2/jquery-3.1.0.js"></script>
+    <script src="assets/js2/tether.js"></script>
+    <script src="assets/js2/bootstrap.js"></script>
+    <script src="assets/js2/login.js"></script>
+
 </body>
 
 </html>
+<script>
+function entrar(){
+    window.location.href='site/map.html';
+}
+
+</script>

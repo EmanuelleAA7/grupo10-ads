@@ -24,3 +24,10 @@
   background-color: rgb(223, 83, 18);
   color: white;
 }
+.textos{
+  font-family:Noto Sans, sans-serif;
+  font-size: 13px ;
+}
+.textos2{
+  font-family: Comic Sans MS, cursive, sans-serif; font-size: 20px;
+}
