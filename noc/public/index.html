@@ -34,11 +34,11 @@
                         <form class="forms_form">
                             <fieldset class="forms_fieldset ">
                                 <div class="forms_field">
-                                    <input type="email" placeholder="Email" class="forms_field-input" required
+                                    <input type="email" placeholder="Email" name="email" id="email" class="forms_field-input" 
                                         autofocus />
                                 </div>
                                 <div class="forms_field">
-                                    <input type="password" placeholder="Senha" class="forms_field-input" required />
+                                    <input type="password" placeholder="Senha" name="senha" id="senha" class="forms_field-input" />
                                 </div>
                             </fieldset>
                             <div class="forms_buttons">
@@ -68,9 +68,21 @@
 </body>
 
 </html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 function entrar(){
-    window.location.href='site/map.html';
+    // if(email.value =="" || senha.value==""){
+    //     swal({
+    //             title: "Aviso!",
+    //             text: "Preencha todos os campos!",
+    //             button: "Ok!",
+    //             icon: 'warning'
+    //         });
+    //         return false;
+    // }else{
+        window.location.href='site/map.html';
+    // }
+    
 }
 
 </script>
