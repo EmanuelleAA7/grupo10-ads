@@ -34,14 +34,17 @@ public class Atualizacao{
         this.so = (String.valueOf(os));   
         
         CentralProcessor cp = hal.getProcessor();
-        Util.sleep(1000);
         this.processador = cp.toString();
         
         GlobalMemory memory = hal.getMemory();
         this.ramTotal = FormatUtil.formatBytes(memory.getTotal()) ;     
-        this.ramDisp = FormatUtil.formatBytes(memory.getAvailable()) ;
+//      this.ramDisp = FormatUtil.formatBytes(memory.getAvailable()) ;
+        long tot = memory.getTotal();
+        long disp = memory.getAvailable();
+        this.ramDisp = String.format("%.1f%%", 100 - (100d * disp/tot));
             
         long[] prevTicks = cp.getSystemCpuLoadTicks();
+        Util.sleep(2000);
         this.cpu = String.format("%.1f%%", cp.getSystemCpuLoadBetweenTicks(prevTicks) * 100);
         
         //falta disco
@@ -71,7 +74,7 @@ public class Atualizacao{
         Double disco = Double.valueOf(att.getDisco().substring(0,3).replaceAll(",","."));
         
         jdbcTemplate.update("insert into tbLeitura (dataHora, fkMaquina,cpu, ram,disco) values (?,?,?,?,?)",
-        LocalDateTime.now(),5,cpu, ram,disco);
+        LocalDateTime.now(),6,cpu, ram,disco);
         
         System.out.println("funfando");
                 
