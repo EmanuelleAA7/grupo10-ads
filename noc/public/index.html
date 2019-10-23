@@ -31,7 +31,7 @@
                 <div class="user_options-forms" id="user_options-forms">
                     <div class="user_forms-login">
                         <h2 class="forms_title text-info">Login</h2>
-                        <form class="forms_form">
+                        <form class="forms_form" onsubmit="return entrar()" id="form_registro">
                             <fieldset class="forms_fieldset ">
                                 <div class="forms_field">
                                     <input type="email" placeholder="Email" name="email" id="email" class="forms_field-input" 
@@ -43,7 +43,7 @@
                             </fieldset>
                             <div class="forms_buttons">
                                 <button type="button" class="forms_buttons-forgot">Esqueceu a senha?</button>
-                                <button type="button" class="forms_buttons-action bg-primary" onclick="entrar()">Entrar</button>
+                                <button class="forms_buttons-action bg-primary" >Entrar</button>
                             </div>
                         </form>
                     </div>
@@ -70,18 +70,49 @@
 </html>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-function entrar(){
-    // if(email.value =="" || senha.value==""){
-    //     swal({
-    //             title: "Aviso!",
-    //             text: "Preencha todos os campos!",
-    //             button: "Ok!",
-    //             icon: 'warning'
-    //         });
-    //         return false;
-    // }else{
+
+function verificarAutenticacao(){
+    if(localStorage.email!=undefined){
         window.location.href='site/map.html';
-    // }
+    }
+}
+
+function entrar(){
+    if(email.value =="" || senha.value==""){
+        swal({
+                title: "Aviso!",
+                text: "Preencha todos os campos!",
+                button: "Ok!",
+                icon: 'warning'
+            });
+            return false;
+    }else {
+
+            var formulario = new URLSearchParams(new FormData(form_registro));
+            console.log(formulario);
+            fetch('/users/entrar',{
+                method:"POST",
+                body:formulario
+            }).then((response)=>{
+                if(response.ok){
+                    response.json().then((resposta)=>{
+                        console.log(resposta);
+                        
+                        localStorage.email = resposta.email;
+                        verificarAutenticacao();
+                    })
+                }else{
+                    swal({
+                title: "Aviso!",
+                text: "Dados inválidos!",
+                button: "Ok!",
+                icon:'warning'
+            });
+                }
+            });
+            return false;
+
+        }
     
 }
 
