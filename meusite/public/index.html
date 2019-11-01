@@ -472,29 +472,24 @@ Foi lançado através da IBM a IBM/360 que evoluiu as máquinas de cartões perf
       </div>
     </div>
     <div class="rodape-formulario-estilo">
-      <form id="cadastro" name="contactform" method="POST" action="mail/contact_me.php">
+      <form id="cadastro" name="contactform" onsubmit="enviar(event)">
 
-        <input class="rodape-formulario" name="nameEmpresa" type="text" placeholder="Nome Empresa*" required="required"
-          data-validation-required-message="Please enter your name." >
+        <input class="rodape-formulario" name="nameEmpresa" type="text" placeholder="Nome Empresa*" required="required">
 
-        <input class="rodape-formulario" name="cnpj" type="text" placeholder="CNPJ *" required="required"
-          data-validation-required-message="Please enter your email address.">
+        <input class="rodape-formulario" name="cnpj" type="text" placeholder="CNPJ *" required="required">
 
         <br>
-        <input class="rodape-formulario" name="email"  type="text" placeholder="Email*" required="required"
-          data-validation-required-message="Please enter your phone number.">
+        <input class="rodape-formulario" name="email"  type="text" placeholder="Email*" required="required">
 
         <input class="rodape-formulario" name="nameRepresentante" type="text" placeholder="Nome Representante*" required="required"
-          data-validation-required-message="Please enter your name.">
+          >
         <br>
-        <input class="rodape-formulario" name="emailRepresentante"  type="text" placeholder="Email Representante*" required="required"
-          data-validation-required-message="Please enter your email address.">
+        <input class="rodape-formulario" name="emailRepresentante"  type="text" placeholder="Email Representante*" required="required">
 
-        <input class="rodape-formulario" name="phone"  type="text" placeholder="Telefone Representante*" required="required"
-          data-validation-required-message="Please enter your phone number.">
+        <input class="rodape-formulario" name="phone"  type="text" placeholder="Telefone Representante*" required="required">
         <br>
 
-        <button id="sendMessageButton roda" class="botao-enviar-formulario" type="submit">Enviar</button>
+        <button id="yfiugiugi" class="botao-enviar-formulario" type="submit">Enviar</button>
       </form>
     </div>
   </section>
@@ -526,3 +521,42 @@ Foi lançado através da IBM a IBM/360 que evoluiu as máquinas de cartões perf
 </body>
 
 </html>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+  async function enviar(event){
+    console.log('event', event)
+    event.preventDefault();
+    var cadastroForm = new URLSearchParams(new FormData(document.getElementById('cadastro')));
+            const response = await fetch('/users/entrar',{
+                method:"POST",
+                body: cadastroForm
+            });
+              console.log("Response: "+response);
+                if(response.ok){
+                    response.json().then((resposta)=>{
+                        console.log(resposta);
+                        
+                      console.log("retornou");
+                      swal({
+                title: "Aviso!",
+                text: "Cadastro enviado!",
+                button: "Ok!",
+                icon:'warning'
+            })
+                    })
+                }else{
+                swal({
+                title: "Aviso!",
+                text: "Dados inválidos!",
+                button: "Ok!",
+                icon:'warning'
+            });
+                }
+         
+  }
+
+
+
+</script>
