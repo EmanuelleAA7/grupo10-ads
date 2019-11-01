@@ -1,5 +1,5 @@
 
-package com.mycompany.cerberus;
+package controller;
 
 import java.time.LocalDateTime;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -64,13 +64,23 @@ public class Atualizacao{
        
 
     }
+    public void checarComponentes(Atualizacao att){
+        Double cpu = Double.valueOf(att.getCpu().substring(0,3).replaceAll(",","."));
+        Double ram = Double.valueOf(att.getRamDisp().substring(0,4).replaceAll(",","."));
+        Double disco = Double.valueOf(att.getDisco().substring(0,3).replaceAll(",","."));
+        
+        if(cpu >= 80){
+            
+        }
+        
+            
+    }
+    
     
     public void insereBanco(Atualizacao att){
         
         Double cpu = Double.valueOf(att.getCpu().substring(0,3).replaceAll(",","."));
         Double ram = Double.valueOf(att.getRamDisp().substring(0,4).replaceAll(",","."));
-        System.out.println(ram);
-        
         Double disco = Double.valueOf(att.getDisco().substring(0,3).replaceAll(",","."));
         
         jdbcTemplate.update("insert into tbLeitura (dataHora, fkMaquina,cpu, ram,disco) values (?,?,?,?,?)",

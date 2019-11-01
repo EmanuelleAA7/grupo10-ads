@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.cerberus;
+package telas;
 
+import controller.ListarProcessos;
 import java.awt.Point;
 
 /**

@@ -1,5 +1,5 @@
 
-package com.mycompany.cerberus;
+package controller;
 
 
 import java.util.Arrays;

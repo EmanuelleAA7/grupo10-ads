@@ -1,6 +1,7 @@
 
-package com.mycompany.cerberus;
+package telas;
 
+import controller.Conexao;
 import java.util.Map;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
