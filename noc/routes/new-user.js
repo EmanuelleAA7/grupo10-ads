@@ -23,15 +23,17 @@ var telefone = req.body.telefone;
 var email = req.body.email;
 
 
-//return banco.sql.query(`SELECT * FROM tbFuncionario where email = '${email}' and senha='${senha}'`);
 },
-
-banco.query(`insert into tbEmpresa (nomeEmpresa,cnpj,rua,numero,cep,cidade,estado,telefone,email) values
- (${nomeEmpresa},${cnpj},${rua},${numero},${cep},${cidade},${estado},${telefone},${email})`),function(err,result){if(!err){
-  console.log('Usuario cadastrado com sucesso');
-}else{
-  console.log('erro ao cadastrar')
-}}
+function cadastrar(cnpj,rua,nomeEmpresa,cep,cidade,estado,telefone,email){
+    banco.query(`insert into tbEmpresa (nomeEmpresa,cnpj,rua,numero,cep,cidade,estado,telefone,email) values
+                (${nomeEmpresa},${cnpj},${rua},${numero},${cep},${cidade},${estado},${telefone},${email})`),function(err,result){
+                  if(!err){
+                    console.log('Usuario cadastrado com sucesso');
+                  }else{
+                    onsole.log('erro ao cadastrar')
+    }
+  }
+}
 
 
 
