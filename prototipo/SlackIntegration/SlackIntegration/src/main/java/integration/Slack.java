@@ -10,14 +10,20 @@ import org.json.JSONObject;
 
 public class Slack {
 
-    private String url = "Coloque aqui sua URL do slack (webhook)";
+    //Nessa variável está a URL do slack ( webhook)
+    
+    private String url = "https://app.slack.com/client/TMR8CNK5G/DPZQLF4UD";
 
     public void insertMessage(JSONObject message) throws Exception {
 
         URL obj = new URL(this.url);
 
+    //Essa função faz a conexão entre o link HTTP do slack ao JAVA
+        
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
+    //Método de envio das informações 
+    
         con.setRequestMethod("POST");
         con.setDoOutput(true);
 
