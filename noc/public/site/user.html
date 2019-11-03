@@ -126,7 +126,7 @@
                 <h5 class="title text-center">Cadastre um novo Cliente!</h5>
               </div>
               <div class="card-body">
-                <form>
+                <form onsubmit="return cadastrar()" id="form_registro">
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
@@ -153,7 +153,7 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Número:</label>
-                        <input type="text" name="rua" class="form-control" placeholder="Número" >
+                        <input type="text" id="numero" name="numero" class="form-control" placeholder="Número" >
                       </div>
                     </div>
                   </div>
@@ -167,7 +167,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Cidade:</label>
-                        <input type="text" name="cidade" class="form-control" placeholder="Cidade">
+                        <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
                       </div>
                     </div>
                   </div>
@@ -175,13 +175,13 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Estado</label>
-                        <input type="text" name="estado" class="form-control" placeholder="Estado" >
+                        <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado" >
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Telefone</label>
-                        <input type="text" name="telefone" class="form-control" placeholder="Telefone" >
+                        <input type="text" id="telefone" name="telefone" class="form-control" placeholder="Telefone" >
                       </div>
                     </div>
                    
@@ -190,12 +190,12 @@
                       <div class="col-md-5 pr-1">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Email">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">
                           </div>
                         </div>
                    
                   </div>
-                  <button class="button button1" onclick="cadastrar()">
+                  <button class="button button1" type="button" >
                     Cadastrar
                   </button>
                 </form>
@@ -256,8 +256,54 @@
 </body>
 
 </html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
      function sair(){
     window.location.href='../index.html'
   }
+
+  function cadastrar(){
+     console.log('AQUI');
+     if(email.value =="" || nomeEmpresa.value =="" || cnpj.value =="" || rua.value =="" 
+     || numero.value =="" || cep.value =="" || cidade.value =="" || estado.value =="" || telefone.value =="" ){
+         swal({
+                title: "Aviso!",
+                text: "Preencha todos os campos!",
+                button: "Ok!",
+                 icon: 'warning'
+             });
+            return false;
+   }
+    var formulario = new URLSearchParams(new FormData(form_registro));
+            console.log(formulario);
+        
+        console.log(formulario);
+            fetch('/new-user/cadastrar',
+            {
+          
+                method:"POST",
+                body:formulario
+            }).then((response)=>{
+                if(response.ok){
+                    response.json().then((resposta)=>{
+                        console.log(resposta);
+                        
+                        // localStorage.email = resposta.email;
+                        // verificarAutenticacao();
+                    })
+                }else{
+                    swal({
+                title: "Aviso!",
+                text: "Dados inválidos!",
+                button: "Ok!",
+                icon:'warning'
+            });
+                }
+            });
+            return false;
+
+        }
+    
+    
+       
   </script>
