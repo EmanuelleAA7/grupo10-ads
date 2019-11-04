@@ -2,46 +2,43 @@ var express = require('express');
 var router = express.Router();
 var banco = require('../app-banco');
 
-  router.post('/cadastrar',(req,res,next)=>{
-         console.log(`Chegou para registro.`);
- // Dados do formulário de login
-var cnpj = req.body.cnpj;
-var nomeEmpresa = req.body.nomeEmpresa;
-var rua = req.body.rua;
-var numero = req.body.numero;
-var cep = req.body.cep;
-var cidade = req.body.cidade;
-var estado = req.body.estado;
-var telefone = req.body.telefone;
-var email = req.body.email;
+router.post('/cadastrar',(req,res,next)=>{
+    console.log(`Chegou para registro: ${JSON.stringify(req.body)}`);
+            
+    // Dados do formulário de login
+    var cnpj = req.body.cnpj;
+    var nomeEmpresa = req.body.nomeEmpresa;
+    var rua = req.body.rua;
+    var numero = req.body.numero;
+    var cep = req.body.cep;
+    var cidade = req.body.cidade;
+    var estado = req.body.estado;
+    var telefone = req.body.telefone;
+    var email = req.body.email;
 
- banco.conectar().then(()=>{
+    console.log('iniciando conexão com o banco');
+    banco.conectar().then(async ()=>{
+        try{
+            const resultado = await new banco.sql.Request()
+            .input('nomeEmpresa', nomeEmpresa)
+            .input('cnpj', banco.sql.Int, cnpj)//esta zuada
+            .input('rua', rua)
+            .input('numero', banco.sql.Int, numero)
+            .input('cep', banco.sql.Int, cep)
+            .input('cidade', cidade)
+            .input('estado', estado)
+            .input('telefone', banco.sql.Int, telefone)
+            .input('email', email)
+            .query('INSERT INTO tbEmpresa (nomeEmpresa,cnpj,rua,numero,cep,cidade,estado,telefone,email) VALUES (@nomeEmpresa, @cnpj, @rua , @numero, @cep, @cidade, @estado, @telefone , @email)');
 
+            console.log('Linhas afetadas', resultado.rowsAffected);
 
-
-   return banco.query(`insert into tbEmpresa (nomeEmpresa,cnpj,rua,numero,cep,cidade,estado,telefone,email) values
-                ('${nomeEmpresa}',${cnpj},'${rua}',${numero},${cep},'${cidade}','${estado}',${telefone},'${email}')`),function(err,result){
-                  if(!err){
-                    console.log('Usuario cadastrado com sucesso');
-                  }else{
-                    onsole.log('erro ao cadastrar')
-    }
-  }
-}
-
-).then(()=>{
-res.send('cadastrou.'); 
-res.sendStatus(200);
-})
-.catch(err=>{
-console.log('Erro ao cadastrar: \n', err)
-res.sendCode(500);
-})
-.finally(()=>{
-banco.sql.close();
-})
+            res.send(resultado);
+        }catch(e) {
+            console.log("Erro no request \n", e);
+        };
+	banco.sql.close();
+    });
 });
-
-
 
 module.exports = router;
