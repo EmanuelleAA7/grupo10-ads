@@ -127,18 +127,18 @@
                 <h5 class="title text-center">Cadastre uma nova Máquina!</h5>
               </div>
               <div class="card-body">
-                <form>
+                <form  id="form_Machine" onsubmit="return cadastrar()">
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>Serial Number:</label>
-                        <input type="text" name="seriaNumber" class="form-control"placeholder="Serial Number" >
+                        <input type="text" id="serialNumber" name="seriaNumber" class="form-control"placeholder="Serial Number" >
                       </div>
                     </div>
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Modelo:</label>
-                        <input type="text" name="modelo" class="form-control"  placeholder="Modelo">
+                        <input type="text" name="modelo" id="modelo" class="form-control"  placeholder="Modelo">
                       </div>
                     </div>
                   </div>
@@ -148,13 +148,13 @@
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>Sistema Operacional:</label>
-                        <input type="text" name="sistemaOperacional" class="form-control" placeholder="Sistema Operacional" >
+                        <input type="text" name="sistemaOperacional" id="sistemaOperacional" class="form-control" placeholder="Sistema Operacional" >
                       </div>
                     </div>
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>HostName:</label>
-                        <input type="text" name="hostName" class="form-control" placeholder="HostName" >
+                        <input type="text" name="hostName" class="form-control" id="hostName" placeholder="HostName" >
                       </div>
                     </div>
                   </div>
@@ -162,20 +162,20 @@
                     <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Processador:</label>
-                        <input type="text" name="processador" class="form-control" placeholder="Processador">
+                        <input type="text" name="processador" class="form-control" id="processador" placeholder="Processador">
                       </div>
                     </div>
                     <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>RAM:</label>
-                        <input type="text" name="ram" class="form-control" placeholder="RAM">
+                        <input type="text" name="ram" id="ram" class="form-control" placeholder="RAM">
                       </div>
                     </div>
 
                     <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Disco:</label>
-                        <input type="text" name="disco" class="form-control" placeholder="Disco" >
+                        <input type="text" name="disco" id="disco" class="form-control" placeholder="Disco" >
                       </div>
                     </div>
                   </div>
@@ -246,4 +246,29 @@
     function sair(){
     window.location.href='../index.html'
   }
+  function cadastrar(){
+  var formulario = new URLSearchParams(new FormData(form_Machine));
+            console.log(formulario);
+ 
+            fetch('/new-user/cadastrar',
+            {
+          
+                method:"POST",
+                body:formulario
+            }).then((response)=>{
+                if(response.ok){
+                    response.json().then((resposta)=>{
+                        console.log(resposta);
+                      })
+                }else{
+                    swal({
+                title: "Aviso!",
+                text: "Dados inválidos!",
+                button: "Ok!",
+                icon:'warning'
+            });
+                }
+            });
+            return false;
+        }  
   </script>
