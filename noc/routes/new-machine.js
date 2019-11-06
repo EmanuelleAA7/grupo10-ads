@@ -18,7 +18,7 @@ router.post('/cadastrar',(req,res,next)=>{
     
     console.log('iniciando conexão com o banco');
     banco.conectar().then(async ()=>{
-        new sql.ConnectionPool(config).conectar().then(pool => {
+       
         
         try{
             const resultado = await new banco.sql.Request()
