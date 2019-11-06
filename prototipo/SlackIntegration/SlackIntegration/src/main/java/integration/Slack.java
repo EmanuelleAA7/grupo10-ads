@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class Slack {
 
     //Nessa variável está a URL do slack ( webhook)
-    private String url = "https://app.slack.com/client/TMR8CNK5G/DPZQLF4UD";
+    private String url = "https://hooks.slack.com/services/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";
 
     public void insertMessage(JSONObject message) throws Exception {
 
@@ -54,6 +54,6 @@ public class Slack {
         
         reader.close();
         
-        System.out.println("Success.");
+        System.out.println("Success: " + response);
     }
 }
