@@ -1,169 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>NOC-CÉRBERUS</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Serviço Noc Cérberus
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-  <link href="../assets/css/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Rufina&display=swap" rel="stylesheet">
+  <style>
+  body{
+      font-family: 'Rufina', serif;
+      font-weight: bold;
+  }
+  </style>
 </head>
 
-<body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-    <div class="logo" style="text-align: center;">
-        
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal" style="font-family:Comic Sans MS, cursive, sans-serif; font-size: 20px;" >
-        Cérberus
-      </a>
-    </div>
-    <div class="sidebar-wrapper" id="sidebar-wrapper">
-      <ul class="nav">
-     
-        <li class="active ">
-          <a href="./dashboard.html">
-            <i class="now-ui-icons business_chart-bar-32"></i>
-            <p  class="textos">Dashboards</p>
-          </a>
-        </li>
-        <li class="active ">
-            <a href="./map.html">
-              <i class="now-ui-icons arrows-1_minimal-left"></i>
-              <p  class="textos" >Voltar</p>
-              
+<body class="bg-dark">
+  <div class="wrapper">
+    <div class="sidebar bg-dark" data-color="orange" data-background-color="black">
+
+      <div class="logo">
+        <a href="#" class="simple-text logo-normal">
+          CÉRBERUS
+        </a>
+        <span style="color: white; font: 18pt;" >Olá, nome</span>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="dashboard.html">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
             </a>
           </li>
-       
-      </ul>
+          <li class="nav-item ">
+            <a class="nav-link" href="cadFuncionario.html">
+              <i class="material-icons">person</i>
+              <p>Novo Funcionario</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="cadMaquina.html">
+              <i class="material-icons">laptop</i>
+              <p>Nova Maquina</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="analitico.html">
+              <i class="material-icons"> pie_chart</i>
+              <p>Dados Análiticos</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="clientes.html">
+              <i class="material-icons">view_list</i>
+              <p>Nossos Cliente</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="https://cerberus.tomticket.com?account=2349504P10112019021138" target="_blank">
+              <i class="material-icons">language</i>
+              <p>Suporte</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./notifications.html">
+              <i class="material-icons">power_settings_new</i>
+              <p>Sair</p>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-    <div class="main-panel" id="main-panel">
+    <div class="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="textos2" >Dashboards</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
           </button>
-          <div style="margin-left: 60%;">
-            <a class="navbar-brand" href="#pablo">Bem-Vindo, Anderson !</a>
-          </div>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-        
+          <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
+                <a class="nav-link" href="#">
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons users_circle-08"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Informações</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Anderson Silva</a>
-                  <a class="dropdown-item" href="#" onclick="sair()">Sair</a>
-           
-                </div>
-              </li>
-              
-           
+              <!-- your navbar here -->
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
-       
-        <canvas style="width: 10%; height: 10%;" id="lineChart"></canvas>
-     
-      </div>
       <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-chart">
-              <div class="card-body">
-                <iframe style="margin-left:-4%; background-color: transparent;" width="1040" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiMDk1MWY2NTYtYjJlNC00NWZjLTg3YWEtZjMyNjhiNjg3NGVjIiwidCI6ImZkNTBiNDU3LTg0ZTAtNDAwYy04MGYyLTQ2MGYyOGViNDFhNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
-              </div>   
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-success" style="background: rgba(248, 248, 248, 0.534);">
+                    <div class="card-body">
+                        <h4 class="card-title text-success text-center">Monitoramento em tempo real</h4>
+                      </div>
+                  <canvas id="line-chart" width="800" height="450"></canvas>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <span id="datahora"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
 
-
-
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript"></script>
-  <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-
-<!-- Bootstrap core JavaScript -->
-<script src="../assets/js/utils.js"></script>
-<script src="../assets/js/pizza.js"></script>
-<script src="../assets/js/moment.min.js"></script>
-<script src="../assets/js/utils2.js"></script>
-<script src="../assets/js/ram.js"></script>
-<script src="../assets/js/cpu.js"></script>
-
-
-
-
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
-    });
-  </script>
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="../assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+    <script src="../assets/demo/demo.js"></script>
+    <script src="../assets/demo/button.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="../assets/js/graficos.js"></script>
 </body>
 
 </html>
-<script>
-      function sair(){
-    window.location.href='../index.html'
-  }
-  </script>

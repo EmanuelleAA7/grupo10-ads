@@ -1,119 +1,96 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="assets/css2/bootstrap.css">
-    <link rel="stylesheet" href="assets/css2/ceberus3.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <title>CÉBERUS </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Login</title>
 </head>
 
 <body>
-    <main>
-        <section class="user">
-            <div class="user_options-container">
-                <div class="user_options-text">
-                    <div class="user_options-unregistered">
-                        <h2 class="user_unregistered-title">Bem-vindo</h2>
-                        <p class="user_unregistered-text">Central de NOC CÉRBERUS</p>
-                        <button class="user_unregistered-signup" id="signup-button">Informações</button>
-                    </div>
 
-                    <div class="user_options-registered">
-                        <h2 class="user_registered-title">Já tem uma conta?</h2>
-                        <p class="user_registered-text">Faça o acesso rápido por aqui</p>
-                        <button class="user_registered-login" id="login-button">Login</button>
-                    </div>
-                </div>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <main class="mdl-layout__content">
+            <div class="container">
+                <div class="box">
+                    <section class="user">
+                        <div class="user_options-container">
+                            <div class="user_options-text">
+                                <div class="user_options-unregistered">
+                                    <h2 class="user_unregistered-title" >Bem-vindo</h2>
+                                    <p class="user_unregistered-text">Central de NOC CÉRBERUS</p>
+                                    <button class="user_unregistered-signup" id="signup-button">Informações</button>
+                                </div>
 
-                <div class="user_options-forms" id="user_options-forms">
-                    <div class="user_forms-login">
-                        <h2 class="forms_title text-info">Login</h2>
-                        <form class="forms_form" onsubmit="return entrar()" id="form_registro">
-                            <fieldset class="forms_fieldset ">
-                                <div class="forms_field">
-                                    <input type="email" placeholder="Email" name="email" id="email" class="forms_field-input" 
-                                        autofocus />
+                                <div class="user_options-registered">
+                                    <h2 class="user_registered-title">Já tem acesso a conta?</h2>
+                                    <p class="user_registered-text">Faça o login rápido por aqui</p>
+                                    <button class="user_registered-login" id="login-button">Login</button>
                                 </div>
-                                <div class="forms_field">
-                                    <input type="password" placeholder="Senha" name="senha" id="senha" class="forms_field-input" />
-                                </div>
-                            </fieldset>
-                            <div class="forms_buttons">
-                                <button type="button" class="forms_buttons-forgot">Esqueceu a senha?</button>
-                                <button class="forms_buttons-action bg-primary" >Entrar</button>
                             </div>
-                        </form>
-                    </div>
-                    <div class="user_forms-signup">
-                        <h2 class="forms_title text-info">Informações de Segurança</h2>
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-warning "><i class="fas fa-exclamation-triangle"></i> Lembre-se não passe sua senha para ninguem!</li>
-                            <li class="list-group-item list-group-item-warning"><i class="fas fa-exclamation-triangle"></i> Não deixe exposto seus dados!</li>
-                            <li class="list-group-item list-group-item-warning"><i class="fas fa-exclamation-triangle"></i> Toda Informações contida no portal é confidencialmente da empresa CÉRBERUS!</li>
-                        </ul>
-                        </form>
-                    </div>
+
+                            <div class="user_options-forms" id="user_options-forms">
+                                <div class="user_forms-login">
+                                    <h2 class="forms_title" style="color:#00008b">Login</h2>
+                                    <form class="forms_form">
+                                        <fieldset class="forms_fieldset">
+                                            <div class="forms_field">
+                                                <input type="email" placeholder="Email" class="forms_field-input"
+                                                    required autofocus />
+                                            </div>
+                                            <div class="forms_field">
+                                                <input type="password" placeholder="Senha" class="forms_field-input"
+                                                    required />
+                                            </div>
+                                        </fieldset>
+                                        <div class="forms_buttons">
+                                            <button type="button" class="forms_buttons-forgot" style="  color:#00008b;">Esqueceu a
+                                                senha?</button>
+                                            <button style="background-color: #00008b;" class="forms_buttons-action bg-primary" onclick="verificacao()" >Entrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="user_forms-signup">
+                                    <h2 class="forms_title text-info" style="color: #00008b;">Informações de Segurança</h2>
+                                    <ul class='mdl-list'>
+                                        <li class="mdl-list__item">
+                                            <span class="mdl-list__item-primary-content">Lembre-se não passe sua senha
+                                                para ninguem!</span>
+                                        </li>
+                                        <li class="mdl-list__item">
+                                            <span class="mdl-list__item-primary-content">Não deixe exposto seus
+                                                dados!</span>
+                                        </li>
+                                        <li class="mdl-list__item">
+                                            <span class="mdl-list__item-primary-content">Toda Informações contida no
+                                                portal é confidencialmente da empresa CÉRBERUS!</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-        </section>
-    </main>
-    <script src="assets/js2/jquery-3.1.0.js"></script>
-    <script src="assets/js2/tether.js"></script>
-    <script src="assets/js2/bootstrap.js"></script>
-    <script src="assets/js2/login.js"></script>
+        </main>
+    </div>
+    <script src="assets/js/jquery-3.1.0.js"></script>
+    <script src="assets/js/material.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script>
+        
 
+        function verificacao() {
+            window.location.href='site/map.html';
+        }
+       
+    
+    </script>
 </body>
 
 </html>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-
-function verificarAutenticacao(){
-    if(localStorage.email!=undefined){
-        window.location.href='site/map.html';
-    }
-}
-
-function entrar(){
-    if(email.value =="" || senha.value==""){
-        swal({
-                title: "Aviso!",
-                text: "Preencha todos os campos!",
-                button: "Ok!",
-                icon: 'warning'
-            });
-            return false;
-    }else {
-
-            var formulario = new URLSearchParams(new FormData(form_registro));
-            console.log(formulario);
-            fetch('/users/entrar',{
-                method:"POST",
-                body:formulario
-            }).then((response)=>{
-                if(response.ok){
-                    response.json().then((resposta)=>{
-                        console.log(resposta);
-                        
-                        localStorage.email = resposta.email;
-                        verificarAutenticacao();
-                    })
-                }else{
-                    swal({
-                title: "Aviso!",
-                text: "Dados inválidos!",
-                button: "Ok!",
-                icon:'warning'
-            });
-                }
-            });
-            return false;
-
-        }
-    
-}
-
-</script>
